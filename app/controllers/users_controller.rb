@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if !logged_in?
-      erb :'create_user'
+      erb :'users/create_user'
     else
       redirect to '/tweets'
     end
