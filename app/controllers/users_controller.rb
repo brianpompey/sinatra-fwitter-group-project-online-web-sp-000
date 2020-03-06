@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
     else
       redirect to '/signup'
-    else
+    end
   end
 
   get 'logout' do
