@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
       else
         @tweet = @current_user.tweets.create(:content => params[:content])
         if @tweet.save
-          redirect to '/tweets/#{@tweet.id}'
+          redirect to "/tweets/#{@tweet.id}"
         else
           redirect to '/tweets/new'
         end
@@ -37,7 +37,7 @@ class TweetsController < ApplicationController
   get '/tweets/:id' do
     if logged_in?
       @tweet = Tweet.find_by(params[:id])
-      erb :'/tweets/show'
+      erb :'tweets/show_tweet'
     else
       redirect to '/login'
     end
