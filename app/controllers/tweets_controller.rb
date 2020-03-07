@@ -23,8 +23,12 @@ class TweetsController < ApplicationController
         redirect to '/tweets/new'
       else
         @tweet = @current_user.tweets.create(:content => params[:content])
+        if @tweet.save
+          redirect to '/tweets/#{@tweet.id}'
+        else
+          redirect to '/tweets/new'
+        end
       end
-      redirect to '/tweets'
     else
       redirect to '/login'
     end
@@ -73,7 +77,7 @@ class TweetsController < ApplicationController
     end
   end
 
-  
+
 
 
 
